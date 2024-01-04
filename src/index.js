@@ -116,7 +116,10 @@ function Footer() {
     <footer className="footer">
       {isOpen && (
         <div className="order">
-          <p>We're open on till {closeHour}:00. Drop by or order online.</p>
+          <p>
+            We're open from <span>{openHours}:00 PM</span> till{' '}
+            <span>{closeHour}:00 PM</span>. Drop by or order online.
+          </p>
           <button className="btn">Order</button>
         </div>
       )}
@@ -124,14 +127,14 @@ function Footer() {
   );
 }
 
-function Pizza(props) {
+function Pizza({ pizzaObj }) {
   return (
     <li className="pizza">
-      <img src={props.pizzaObj.photoName} alt={props.pizzaObj.name}></img>
+      <img src={pizzaObj.photoName} alt={pizzaObj.name}></img>
       <div>
-        <h3>{props.pizzaObj.name}</h3>
-        <p>{props.pizzaObj.ingredients}</p>
-        <span>{props.pizzaObj.price + 3}</span>
+        <h3>{pizzaObj.name}</h3>
+        <p>{pizzaObj.ingredients}</p>
+        <span>{pizzaObj.price}</span>
       </div>
     </li>
   );
